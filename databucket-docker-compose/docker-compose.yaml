@@ -1,0 +1,27 @@
+version: '2.1'
+
+services: 
+  mysql:
+    image: mysql:8
+    ports: 
+      - 3306:3306
+    environment: 
+      MYSQL_DATABASE: databucket
+      MYSQL_USER: databucket
+      MYSQL_PASSWORD: data1234!
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+    healthcheck:
+      test: "/usr/bin/mysql --user=databucket --password=data1234! --execute \"SHOW DATABASES;\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+    
+  app:
+    image: databucket/alpine:2.2.5
+    ports:
+      - 8080:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment: 
+      DB_HOST: mysql
