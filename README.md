@@ -9,14 +9,23 @@
 
 # Docker images for Databucket 2
 
+Images are available in [Dockerhub](https://hub.docker.com/u/databucket).
+
 Images included:
 
-- ~~**databucket/all-in-one-alpine**: alpine based image with mysql~~
-- ~~**databucket/all-in-one-slim**: debian slim based image with mysql~~
-- **databucket/alpine**: alpine based image
-- **databucket/slim**: debian slim based image
+- ~~**databucket/all-in-one:2.2.5-alpine** alpine based image with mysql~~
+- ~~**databucket/all-in-one:2.2.5-slim** debian slim based image with mysql~~
+- **databucket/app:2.2.5-alpine** alpine based image
+- **databucket/app:2.2.5-slim** debian slim based image
 
 Crossed images are being prepared, stay tuned.
+
+Image tags without platform suffix:
+
+- ~~**databucket:all-in-one:latest** alpine based image with mysql~~
+- ~~**databucket:all-in-one:2.2.5** alpine based image with mysql~~
+- **databucket/app:latest** alpine based image
+- **databucket/app:2.2.5** alpine based image
 
 # Running the images
 
@@ -25,7 +34,7 @@ Crossed images are being prepared, stay tuned.
 All-in-one images contain mysql instance, to let you setup instance of databucket app without excessive configuration.
 
 ```bash
-docker run -d -p 8080:8080 databucket/all-in-one-alpine:2.2.5
+docker run -d -p 8080:8080 databucket/all-in-one:2.2.5
 ```
 
 ## app only images
@@ -64,9 +73,11 @@ Once jar file is in folder run one of below commands from repository root.
 |`make all`|builds `alpine` and `slim` images|
 |`make slim`|builds `slim` image|
 |`make alpine`|builds `alpine` image|
-|`make tag_latest`| re-tags `alpine` and `slim` images with `latest` version instead of current (`2.2.5`)|
-|`make release`|pushes versioned images to docker-hub (requires respective credentials)|
+|`make tag_latest`| re-tags `alpine` and `slim` images with `latest` version instead of current (ie. `2.2.5-alpine`)|
+|`make tag_version`|re-tags `alpine` image with version only tag (ie. `2.2.5`)|
+|`make release`|pushes `alpine` and `slim` images to docker-hub (requires respective credentials)|
 |`make release_latest`|pushes latest images to docker-hub (requires respective credentials)|
+|`make release_version`|pushes versioned images to docker-hub (requires respective credentials)|
 
 # Building images in TravisCI
 

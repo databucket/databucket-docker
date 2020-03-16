@@ -17,7 +17,7 @@ services:
       retries: 10
     
   app:
-    image: databucket/alpine:2.2.5
+    image: databucket/app:latest
     ports:
       - 8080:8080
     depends_on:
