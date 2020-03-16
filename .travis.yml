@@ -16,3 +16,5 @@ jobs:
       - VERSION="${TRAVIS_TAG}" make release
       - VERSION="${TRAVIS_TAG}" make tag_latest
       - VERSION="${TRAVIS_TAG}" make release_latest
+      - VERSION="${TRAVIS_TAG}" make tag_version
+      - VERSION="${TRAVIS_TAG}" make release_version
