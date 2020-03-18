@@ -58,7 +58,8 @@ ALTER, CREATE, DELETE, DROP, EVENT, EXECUTE, INSERT, REFERENCES, SELECT, TRIGGER
 
 ## docker-compose
 
-If you'd like to create your databucket docker environment, but don't want to setup mysql on your own, use provided sample [docker-compose.yaml](./databucket-docker-compose/docker-compose.yaml).
+If you'd like to create your databucket docker environment, but don't want to setup mysql on your own, use provided sample [docker-compose.yaml](./databucket-docker-compose/docker-compose.yaml) with
+[my.cnf](./databucket-docker-compose/my.cnf) configuration file.
 
 ```bash
 docker-compose -p databucket -f ./docker-compose.yaml up -d
