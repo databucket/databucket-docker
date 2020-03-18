@@ -10,6 +10,8 @@ services:
       MYSQL_USER: databucket
       MYSQL_PASSWORD: data1234!
       MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+    volumes:
+      - ./:/etc/mysql/conf.d
     healthcheck:
       test: "/usr/bin/mysql --user=databucket --password=data1234! --execute \"SHOW DATABASES;\""
       interval: 2s
