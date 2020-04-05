@@ -13,33 +13,17 @@ Images are available in [Dockerhub](https://hub.docker.com/u/databucket).
 
 Images included:
 
-- ~~**databucket/all-in-one:2.2.5-alpine** alpine based image with mysql~~
-- ~~**databucket/all-in-one:2.2.5-slim** debian slim based image with mysql~~
 - **databucket/app:2.2.5-alpine** alpine based image
 - **databucket/app:2.2.5-slim** debian slim based image
 
-Crossed images are being prepared, stay tuned.
-
 Image tags without platform suffix:
 
-- ~~**databucket:all-in-one:latest** alpine based image with mysql~~
-- ~~**databucket:all-in-one:2.2.5** alpine based image with mysql~~
 - **databucket/app:latest** alpine based image
 - **databucket/app:2.2.5** alpine based image
 
 # Running the images
 
-## all-in-one images
-
-All-in-one images contain mysql instance, to let you setup instance of databucket app without excessive configuration.
-
-```bash
-docker run -d -p 8080:8080 databucket/all-in-one:2.2.5
-```
-
-## app only images
-
-App only images require providing information about mysql instance where app should store it's data.  
+Images require providing information about mysql instance where app should store it's data.  
 Environment variables to be used:
 
 |variable|description|default value|
@@ -50,11 +34,20 @@ Environment variables to be used:
 |DB_USER|database username|`databucket`|
 |DB_PASSWORD|database user password|`data1234!`|
 
-Database user must have the following privileges: 
+Database user must have the following privileges:
 
 ```sql
 ALTER, CREATE, DELETE, DROP, EVENT, EXECUTE, INSERT, REFERENCES, SELECT, TRIGGER, UPDATE.
 ```
+
+Database should be set to NOT require binary logging.  
+To disable it run below command.
+
+```sql
+SET GLOBAL log_bin_trust_function_creators = 1;
+```
+
+For more details see [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/stored-programs-logging.html).
 
 ## docker-compose
 
