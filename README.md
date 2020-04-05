@@ -64,9 +64,9 @@ Above command will create docker environment with two containers `databucket-app
 
 # Building images locally
 
-Databucket app is not currently available for download, this means, you have to build jar file on your own before building docker image.  
-Once image is build, must be placed in respective folder (ie: in `databucket-docker-alpine`).  
-Once jar file is in folder run one of below commands from repository root.
+Run one of below commands from repository root.
+
+## Linux/OS X
 
 |command|scope|
 |-|-|
@@ -79,6 +79,18 @@ Once jar file is in folder run one of below commands from repository root.
 |`make release_latest`|pushes latest images to docker-hub (requires respective credentials)|
 |`make release_version`|pushes versioned images to docker-hub (requires respective credentials)|
 
+## Windows
+
+```bash
+docker build -t databucket-app:2.2.5-alpine databucket-docker-alpine
+```
+
+or
+
+```bash
+docker build -t databucket-app:2.2.5-slim databucket-docker-slim
+```
+
 # Building images in TravisCI
 
-Not yet available, requires **databucket-app** jar to be published somewhere first...
+Comming soon.
