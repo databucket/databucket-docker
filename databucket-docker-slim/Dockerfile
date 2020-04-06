@@ -13,12 +13,13 @@ ENV JAR_NAME databucket-app-2.2.5.jar
 RUN adduser spring --disabled-password --gecos ""
 
 RUN apt-get update && \
-    apt-get upgrade -y
+    apt-get upgrade -y && \
+    apt-get install wget -y
 
 COPY /docker-entrypoint.sh /home/spring/docker-entrypoint.sh
 RUN chmod +x /home/spring/docker-entrypoint.sh
 
-COPY /${JAR_NAME} /home/spring/${JAR_NAME}
+RUN wget -O /home/spring/databucket-app-2.2.5.jar https://github.com/databucket/databucket-app/releases/download/2.2.5/databucket-app-2.2.5.jar
 RUN chown spring:spring /home/spring/${JAR_NAME}
 
 USER spring
