@@ -8,7 +8,7 @@ ENV DB_PORT 3306
 ENV DB_DATABASE databucket
 ENV DB_USER databucket
 ENV DB_PASSWORD data1234!
-ENV JAR_NAME databucket-app-2.2.5.jar
+ENV JAR_NAME databucket-app-2.2.6.jar
 
 RUN adduser spring --disabled-password --gecos ""
 
