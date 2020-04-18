@@ -3,6 +3,7 @@ VOLUME /tmp
 
 EXPOSE 8080
 
+ENV TITLE Databucket
 ENV DB_HOST localhost
 ENV DB_PORT 3306
 ENV DB_DATABASE databucket
