@@ -20,7 +20,7 @@ RUN apk update && \
 COPY /docker-entrypoint.sh /home/spring/docker-entrypoint.sh
 RUN chmod +x /home/spring/docker-entrypoint.sh
 
-RUN wget -O /home/spring/databucket-app-2.2.5.jar https://github.com/databucket/databucket-app/releases/download/2.2.5/databucket-app-2.2.5.jar
+RUN wget -O /home/spring/databucket-app-2.2.6.jar https://github.com/databucket/databucket-app/releases/download/2.2.6/databucket-app-2.2.6.jar
 RUN chown spring:spring /home/spring/${JAR_NAME}
 
 USER spring
