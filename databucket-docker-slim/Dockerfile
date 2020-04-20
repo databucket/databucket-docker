@@ -3,13 +3,15 @@ VOLUME /tmp
 
 EXPOSE 8080
 
+ENV VERSION 2.2.6
 ENV TITLE Databucket
 ENV DB_HOST localhost
 ENV DB_PORT 3306
 ENV DB_DATABASE databucket
 ENV DB_USER databucket
 ENV DB_PASSWORD data1234!
-ENV JAR_NAME databucket-app-2.2.6.jar
+ENV DB_PROPERTIES ''
+ENV JAR_NAME databucket-app-${VERSION}.jar
 
 RUN adduser spring --disabled-password --gecos ""
 
@@ -20,7 +22,7 @@ RUN apt-get update && \
 COPY /docker-entrypoint.sh /home/spring/docker-entrypoint.sh
 RUN chmod +x /home/spring/docker-entrypoint.sh
 
-RUN wget -O /home/spring/databucket-app-2.2.6.jar https://github.com/databucket/databucket-app/releases/download/2.2.6/databucket-app-2.2.6.jar
+RUN wget -O /home/spring/${JAR_NAME} https://github.com/databucket/databucket-app/releases/download/${VERSION}/${JAR_NAME}
 RUN chown spring:spring /home/spring/${JAR_NAME}
 
 USER spring
