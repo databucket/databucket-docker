@@ -28,11 +28,13 @@ Environment variables to be used:
 
 |variable|description|default value|
 |-|-|-|
+|TITLE|application title|`Databucket`|
 |DB_HOST|database host url|`localhost`|
 |DB_PORT|database port|`3306`|
 |DB_NAME|database name|`databucket`|
 |DB_USER|database username|`databucket`|
 |DB_PASSWORD|database user password|`data1234!`|
+|DB_PROPERTIES|database properties (starts with `?`, separated by `&`)|``|
 
 Database user must have the following privileges:
 
